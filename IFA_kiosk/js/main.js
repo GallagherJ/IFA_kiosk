@@ -1,16 +1,17 @@
-
-const constraints = {
-  video: true
-};
+//display and screenshot
 
  const video = document.querySelector('#screenshot-video');
+
+ const constraints = {
+  video: true
+};
 
 function handleSuccess(stream) {
   video.srcObject = stream;
 }
 
 function handleError(error) {
-  console.error('Reeeejected!', error);
+  console.error('cant find video obj', error);
 }
 
 navigator.mediaDevices.getUserMedia(constraints).
@@ -30,9 +31,12 @@ navigator.mediaDevices.getUserMedia(constraints).
     img.src = canvas.toDataURL('image/webp');
   };
 
-  function handleSuccess(stream) {
-    video.srcObject = stream;
-  }
+ //print
+  const printButton = document.querySelector('#printButton');
+  printButton.onclick= function(){
 
-  navigator.mediaDevices.getUserMedia(constraints).
-      then(handleSuccess).catch(handleError);
+    window.win = open(img);
+             
+                setTimeout('win.document.execCommand("Print")', 500);
+ }
+              
