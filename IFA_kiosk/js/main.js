@@ -31,12 +31,39 @@ navigator.mediaDevices.getUserMedia(constraints).
     img.src = canvas.toDataURL('image/webp');
   };
 
- //print
-  const printButton = document.querySelector('#printButton');
-  printButton.onclick= function(){
 
-    window.win = open(img);
+ //print
+
+ printButton.onclick= function(){
+
+ /*
+
+ function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+  
+  var printButton = document.querySelector('printDiv');
+  var toPrint = document.getElementById('#screenshot-img');
+  printButton.onclick= printDiv('#screenshot-img');
+
+    
+
+                //toPrint.contentWindow.print()​​​​​​;
+ 
+       
+  /*     function printImg() {
+  pwin = window.open(document.getElementById("screenshot-img").src,"_blank");
+  pwin.onload = function () {window.print();}
+}      */ 
+
+
+ /*   window.win = open(toPrint).src;
              
-                setTimeout('win.document.execCommand("Print")', 500);
- }
-              
+                */
