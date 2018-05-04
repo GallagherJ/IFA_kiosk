@@ -35,7 +35,9 @@ navigator.mediaDevices.getUserMedia(constraints).
  //print
 
  printButton.onclick= function(){
- window.print();}
+ window.print();
+
+}
 
  /*
 

@@ -1,6 +1,14 @@
-body {
-    background-color: lightgrey;
+html {
+    height: 100%;
 }
+body {
+    height: 100%;
+    margin: 0;
+     background: linear-gradient(to bottom, #e55934, #FFCFC1); /*Standard*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 
 .example-print {
     display: none;
@@ -13,3 +21,16 @@ body {
        display: block;
     }
 }
+.hide{
+	display:none;
+}
+.show{
+
+	display: block;
+}
+
+.vidblock{
+	/*height:800px; 
+	width:1200px;*/
+}
+
