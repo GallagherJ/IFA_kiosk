@@ -26,11 +26,17 @@ body {
 }
 .show{
 
-	display: block;
+	visibility: : hidden;
 }
 
 .vidblock{
-	/*height:800px; 
-	width:1200px;*/
-}
+	
+	height:400px; 
+	width:600px;
+	
 
+}
+/*.vidcontainer{
+	height:400px;
+	width:600px;
+}*/
