@@ -24,6 +24,7 @@ navigator.mediaDevices.getUserMedia(constraints).
 
   const canvas = document.createElement('canvas');
   var photoPressed=false; 
+  var d = document.getElementById("screenshot-video");
 
   button.onclick = function() {
     
@@ -34,6 +35,7 @@ navigator.mediaDevices.getUserMedia(constraints).
 
     if (photoPressed === false){
     document.getElementById('screenshot-video').pause();
+    d.className += " flash";
     photoPressed=true;
     console.log(photoPressed);
     
@@ -42,6 +44,7 @@ navigator.mediaDevices.getUserMedia(constraints).
     document.getElementById('screenshot-video').play();
     photoPressed=false;
     console.log(photoPressed);
+    d.classList.remove("flash");
     
 
    }
