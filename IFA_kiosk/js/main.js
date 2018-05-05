@@ -157,11 +157,12 @@ function enableScroll() {
 
 var bigboi = document.getElementById('bigboi');
 var initbtn= document.getElementById('init');
+var secondrow= document.getElementById('second');
 var cam=document.getElementById('camera');
 var booth=document.getElementById('booth');
 var vidscreen=document.getElementById('screenshot-video');
 var cameraBtn=document.getElementById('screenshot-button');
-var printBtn=document.getElementById('printBtn');
+var printBtn=document.getElementById('printButton');
 
 init.onclick = function() {
 
@@ -169,6 +170,16 @@ init.onclick = function() {
  init.className += " animated fadeOutDown";
  init.classList.remove("animgradbg");
 
+ vidscreen.className += "  show animated fadeInLeft ";
+ vidscreen.classList.remove("hide");
+
+ cameraBtn.className += " show animated fadeInLeft";
+  cameraBtn.classList.remove("hide");
+
+ printBtn.className += " show animated fadeInLeft";
+ printBtn.classList.remove("hide");
+
+  secondrow.className += " show";
 
 //document.getElementById('init').onclick = '';
 

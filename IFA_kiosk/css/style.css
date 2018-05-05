@@ -31,7 +31,7 @@ body {
 }
 .show{
 
-	visibility: : hidden;
+	display:inline-block;
 }
 
 .vidblock{
@@ -110,7 +110,7 @@ animation: bga 14s ease infinite;
     100%{background-position:0% 82%}
 }
 
-/*SVG TOUCH FIX*/
+/*SVG TOUCH FIX
 
 rect.btn {
   stroke:#fff;
@@ -118,3 +118,4 @@ rect.btn {
   fill-opacity:0;
   stroke-opacity:0;
 }
+*/
