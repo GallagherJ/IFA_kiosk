@@ -1,3 +1,8 @@
+//variables
+
+var idle = 1;
+
+
 //display and screenshot
 
  const video = document.querySelector('#screenshot-video');
@@ -143,3 +148,28 @@ function enableScroll() {
     document.onkeydown = null;  
 }
 
+
+
+
+//STATES
+
+//INIT (LOADING SCREEN)
+
+var bigboi = document.getElementById('bigboi');
+var initbtn= document.getElementById('init');
+var cam=document.getElementById('camera');
+var booth=document.getElementById('booth');
+var vidscreen=document.getElementById('screenshot-video');
+var cameraBtn=document.getElementById('screenshot-button');
+var printBtn=document.getElementById('printBtn');
+
+init.onclick = function() {
+
+  console.log("click");
+ init.className += " animated fadeOutDown";
+ init.classList.remove("animgradbg");
+
+
+//document.getElementById('init').onclick = '';
+
+}

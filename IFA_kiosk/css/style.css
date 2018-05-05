@@ -48,3 +48,73 @@ body {
 	height:400px;
 	width:600px;
 }*/
+
+/*border gradient*/
+
+.gradient-border {
+  --borderWidth: 2px;
+  background-color: transparent;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #e55934, #FFCFC1);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	25% {
+		background-position: 0% 25%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	75% {
+		background-position: 100% 25%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.animgradbg{
+
+background: linear-gradient(303deg, #e55934, #ffcfc1);
+background-size: 400% 400%;
+border-radius: 2px;
+
+-webkit-animation: bga 14s ease infinite;
+animation: bga 14s ease infinite;
+}
+
+@-webkit-keyframes bga {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes bga { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+
+/*SVG TOUCH FIX*/
+
+rect.btn {
+  stroke:#fff;
+  fill:#fff;
+  fill-opacity:0;
+  stroke-opacity:0;
+}

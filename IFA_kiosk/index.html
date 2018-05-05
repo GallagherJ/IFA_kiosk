@@ -32,7 +32,7 @@
 	
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
+  <div class="container" id="bigboi">
     <div class="row">
       <!--<div class="five columns" style="visibility:hidden"></div>
       <div class="one-half column" style="margin-top: 15%">-->
@@ -40,7 +40,7 @@
         <div class="twelve columns">
     <div class="four columns offset-by-four">
 
-        <h1 class="example-screen" style="margin-top: 15%; margin-left:10%">Photobooth</h1>
+        <h1 class="example-screen" style="margin-top: 15%; margin-left:4%">Photobooth</h1>
 
       </div>
     </div>
@@ -50,9 +50,12 @@
          <div class="row">
         
               <div class="twelve columns">
-                <div class="six columns offset-by-three">
+                <div id="init" class="six columns offset-by-three animgradbg" style="padding-top: 1%; padding-bottom: 0.5% /*border: 2px solid rgba(255, 255, 255, .2);
+  border-radius: 2px;*/">
 
-        <video id="screenshot-video" autoplay class="example-screen vidblock show animated" style="margin-left:-10%"></video>
+        <video id="screenshot-video" autoplay class="example-screen vidblock hide animated" style="margin-left:-10%"></video>
+        <img id="camera" class="show" src="images/camera.svg" type="image/svg+xml" style="width:45%; margin-bottom: 20%; margin-left: 10%"></img>
+        <img id="booth" class="show" src="images/booth.svg" type="image/svg+xml" style="width:20%; margin-left:8%;"></img>
 
          </div>
         </div>
@@ -65,8 +68,8 @@
     <div class="four columns offset-by-four">
   
         <div id="printDiv"><img id="screenshot-img" class="example-print" src="" style="margin-left: 15%"></div>
-        <button id="screenshot-button" class="example-screen" style="margin-left: 10%">TAKE PHOTO</button>
-        <button id="printButton" class="example-screen">PRINT</button> </div>
+        <button id="screenshot-button" class="example-screen hide" style="margin-left: 10%">TAKE PHOTO</button>
+        <button id="printButton" class="example-screen hide">PRINT</button> </div>
 
       </div>
     </div>
