@@ -20,18 +20,32 @@ body {
 @media print {
    .example-screen {
        display: none!important;
+
     }
     .example-print {
-       display: block;
-       margin:0!important;
+       display: block!important;
+      /* margin:0!important;*/
     }
+}
+
+#second{
+	padding-top: 1%; 
+	padding-bottom: 0.5%;
+}
+
+#screenshot-button{
+	margin-left: 10%;
+}
+#screenshot-video{
+	margin-left:-10%; 
+	border: 2px solid rgba(255, 255, 255, .2);
 }
 .hide{
 	display:none;
 }
 .show{
 
-	display:inline-block!important;
+	display:inline-block;
 }
 
 .vidblock{
