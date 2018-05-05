@@ -51,6 +51,8 @@ navigator.mediaDevices.getUserMedia(constraints).
     console.log(photoPressed);
     d.classList.remove("flash");
     
+    clearTimeout(idleWatcher);
+ idleWatcher = setTimeout(idleTime, 120000);
 
    }
    // canvas.style.transform = "scale3d(0.2,0.2,0)";
@@ -65,6 +67,8 @@ navigator.mediaDevices.getUserMedia(constraints).
 
  printButton.onclick= function(){
  window.print();
+ clearTimeout(idleWatcher);
+ idleWatcher = setTimeout(idleTime, 120000);
 
 }
 
@@ -163,25 +167,72 @@ var booth=document.getElementById('booth');
 var vidscreen=document.getElementById('screenshot-video');
 var cameraBtn=document.getElementById('screenshot-button');
 var printBtn=document.getElementById('printButton');
+var rs= document.getElementById('resize');
 
 init.onclick = function() {
 
   console.log("click");
- init.className += " animated fadeOutDown hide";
- init.classList.remove("animgradbg");
+ initbtn.className += " animated fadeOutDown hide";
+ initbtn.classList.remove("animgradbg");
 
- vidscreen.className += "  show animated fadeInLeft ";
+ vidscreen.className += "  show fadeInLeft ";
  vidscreen.classList.remove("hide");
 
- cameraBtn.className += " show animated fadeInLeft";
-  cameraBtn.classList.remove("hide");
-
- printBtn.className += " show animated fadeInLeft";
- printBtn.classList.remove("hide");
-
+cameraBtn.classList.remove("hide");
+ cameraBtn.className += " show fadeInLeft";
+  
+printBtn.classList.remove("hide");
+ printBtn.className += " show fadeInLeft";
+ 
   secondrow.className += " show";
   secondrow.classList.remove("animgradbg");
 
+  rs.style.height = "500px";
+
 //document.getElementById('init').onclick = '';
 
+idleWatcher = setTimeout(idleTime, 120000);
+
 }
+
+//CAMERA SCREEN TO INIT, IDLE TIMER
+function idleTime() {
+
+  initbtn.className += " fadeInUp show";
+ initbtn.classList.remove("fadeOutDown");
+  initbtn.classList.remove("hide");
+  //init.classList.remove("animated");
+
+  vidscreen.className += "  hide";
+ vidscreen.classList.remove("show");
+ vidscreen.classList.remove("fadeInLeft");
+ //vidscreen.classList.remove("animated");
+
+ cameraBtn.className += " hide";
+   cameraBtn.classList.remove("show");
+ cameraBtn.classList.remove("fadeInLeft");
+ //cameraBtn.classList.remove("animated");
+
+ printBtn.className += " hide";
+ printBtn.classList.remove("show");
+ printBtn.classList.remove("fadeInLeft");
+ //printBtn.classList.remove("animated");
+ //secondrow.className += " hide";
+  //secondrow.classList.remove("show");
+
+
+
+
+  setTimeout(initanim, 800);
+
+  }
+
+function initanim(){
+
+  //init.classList.remove("fadeInUp");
+  initbtn.className += " animgradbg";
+  init.classList.remove("fadeInUp");
+  init.classList.remove("animated");
+  console.log("spazzotron avoided");
+
+  }

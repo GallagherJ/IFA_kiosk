@@ -31,7 +31,7 @@ body {
 }
 .show{
 
-	display:inline-block;
+	display:inline-block!important;
 }
 
 .vidblock{
@@ -87,6 +87,10 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+.animgradbehind{
+	background: linear-gradient(303deg, #e55934, #ffcfc1);
 }
 
 .animgradbg{
