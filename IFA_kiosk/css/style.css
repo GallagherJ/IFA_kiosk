@@ -19,7 +19,7 @@ body {
 }
 @media print {
    .example-screen {
-       display: none;
+       display: none!important;
     }
     .example-print {
        display: block;

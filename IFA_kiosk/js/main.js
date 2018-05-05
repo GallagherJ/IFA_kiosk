@@ -167,7 +167,7 @@ var printBtn=document.getElementById('printButton');
 init.onclick = function() {
 
   console.log("click");
- init.className += " animated fadeOutDown";
+ init.className += " animated fadeOutDown hide";
  init.classList.remove("animgradbg");
 
  vidscreen.className += "  show animated fadeInLeft ";
@@ -180,6 +180,7 @@ init.onclick = function() {
  printBtn.classList.remove("hide");
 
   secondrow.className += " show";
+  secondrow.classList.remove("animgradbg");
 
 //document.getElementById('init').onclick = '';
 
