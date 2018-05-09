@@ -40,6 +40,7 @@ navigator.mediaDevices.getUserMedia(constraints).
 
     if (photoPressed === false){
     document.getElementById('screenshot-video').pause();
+    vidscreen.classList.remove("fadeInLeft");
     d.className += " flash";
     photoPressed=true;
     console.log(photoPressed);
@@ -175,7 +176,7 @@ init.onclick = function() {
  initbtn.className += " animated fadeOutDown hide";
  initbtn.classList.remove("animgradbg");
 
- vidscreen.className += "  show fadeInLeft ";
+ vidscreen.className += "  show fadeInLeft";
  vidscreen.classList.remove("hide");
 
 cameraBtn.classList.remove("hide");

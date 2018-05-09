@@ -24,7 +24,7 @@ body {
     }
     .example-print {
        display: block!important;
-      /* margin:0!important;*/
+       margin:0!important;
     }
 }
 
@@ -37,7 +37,7 @@ body {
 	margin-left: 10%;
 }
 #screenshot-video{
-	margin-left:-10%; 
+	margin-left:-18%; 
 	border: 2px solid rgba(255, 255, 255, .2);
 }
 .hide{
@@ -52,8 +52,9 @@ body {
 	
 	/*height:400px; 
 	width:600px;*/
-	border: 2px solid rgba(255, 255, 255, .5);
-	border-radius: 2px;
+	/*border: 2px solid rgba(255, 255, 255, .5);*/
+	/*border-radius: 2px;*/
+
 
 	
 
@@ -113,8 +114,8 @@ background: linear-gradient(303deg, #e55934, #ffcfc1);
 background-size: 400% 400%;
 border-radius: 2px;
 
--webkit-animation: bga 14s ease infinite;
-animation: bga 14s ease infinite;
+-webkit-animation: bga 12s ease infinite;
+animation: bga 12s ease infinite;
 }
 
 @-webkit-keyframes bga {
