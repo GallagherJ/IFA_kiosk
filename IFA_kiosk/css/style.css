@@ -4,7 +4,7 @@ html {
 body {
     height: 100%;
     margin: 0;
-    /* background: linear-gradient(to bottom, #e55934, #FFCFC1); /*Standard*/
+   /* background: linear-gradient(to bottom, #e55934, #FFCFC1);*/
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: #fff!important; 
@@ -60,6 +60,15 @@ body {
 	
 
 }
+#bigboi{
+	 /*background: linear-gradient(to bottom, #e55934, #FFCFC1);*/
+}
+.bg{
+	width:100%;
+	height:100%;
+	background: linear-gradient(to bottom, #e55934, #FFCFC1);
+}
+
 /*.vidcontainer{
 	height:400px;
 	width:600px;
@@ -119,6 +128,21 @@ border-radius: 2px;
 animation: bga 12s ease infinite;
 }
 
+.uptowhite{
+background: linear-gradient(to bottom, #e55934, #FFCFC1);
+/*background: linear-gradient(303deg, rgba(229,89,52,1) 0%,rgba(255,255,255,1) 100%);*/
+/*background-size: 400% 400%;*/
+/*border-radius: 2px;*/
+/*opacity: 1;*/
+
+transition: opacity 1s ease 2s;
+}
+
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+
 @-webkit-keyframes bga {
     0%{background-position:0% 82%}
     50%{background-position:100% 19%}
@@ -128,6 +152,40 @@ animation: bga 12s ease infinite;
     0%{background-position:0% 82%}
     50%{background-position:100% 19%}
     100%{background-position:0% 82%}
+}
+
+@-webkit-keyframes towhite {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes towhite { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+
+@-webkit-keyframes test {
+    0% {
+        background-opacity: 1;
+    }
+    50% {
+        background-opacity: 0.5;
+    }
+    100% { 
+    	background-opacity: 0;
+    }
+}
+@keyframes test {
+     0% {
+        background-opacity: 1;
+    }
+    50% {
+        background-opacity: 0.5;
+    }
+    100% { 
+    	background-opacity: 0;
+    }
 }
 
 /*SVG TOUCH FIX
@@ -165,8 +223,8 @@ rect.btn {
     min-height:100px;
     z-index:300000;
     /*margin-top:13%; */
-    margin-left: 42.5%;
-    font-size: 6.0rem;
+    margin-left: 45%;
+    font-size: 5.0rem;
 }
 .kbbuttons{
 	margin-left: 41%;

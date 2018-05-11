@@ -171,6 +171,8 @@ var cameraBtn=document.getElementById('screenshot-button');
 var printBtn=document.getElementById('printButton');
 var rs= document.getElementById('resize');
 var ret=document.getElementById('reticle');
+var bod = document.getElementById('ontop');
+var count =document.getElementById('countdown');
 
 init.onclick = function() {
 
@@ -198,7 +200,7 @@ init.onclick = function() {
 
 //initbtn.addEventListener("webkitAnimationEnd", reticleAnim);
 
-idleWatcher = setTimeout(idleTime, 120000);
+//idleWatcher = setTimeout(idleTime, 120000);
 showRet = setTimeout(reticleAnim,800);
 
 }
@@ -250,10 +252,91 @@ function initanim(){
   function reticleAnim(){
 
   //init.classList.remove("fadeInUp");
- // ret.className += " show";
- // ret.classList.remove("hide");
+  ret.className += " show flash";
+  ret.classList.remove("hide");
   console.log('ret');
  // init.classList.remove("animated");
  // console.log("spazzotron avoided");
+ ret.addEventListener("webkitAnimationEnd", removeRet);
 
   }
+
+  function removeRet(){
+    ret.className += " fadeOut";
+    ret.classList.remove("show");
+    ret.addEventListener("webkitAnimationEnd", countdown);
+  }
+
+  function countdown(){
+    count.className += " fadeIn";
+    count.classList.remove("hide");
+    count.addEventListener("webkitAnimationEnd", countStart);
+  }
+
+//GOOD OL' W3SCHOOLS COUNTDOWN, CHAMPION OF INCLUSION IN ALL MY PROJECTS
+
+function startTimer(duration, display) {
+    var start = Date.now(),
+        diff,
+        minutes,
+        seconds;
+    function timer() {
+        // get the number of seconds that have elapsed since 
+        // startTimer() was called
+        diff = duration - (((Date.now() - start) / 1000) | 0);
+
+        // does the same job as parseInt truncates the float
+        minutes = (diff / 60) | 0;
+        seconds = (diff % 60) | 0;
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? " " + seconds : seconds;
+
+        display.innerHTML = seconds; 
+
+        if (diff <= 0) {
+            // add one second so that the count down starts at the full duration
+            // example 05:00 not 04:59
+            start = Date.now() + 1000;
+        }
+    };
+    // we don't want to wait a full second before the timer starts
+    timer();
+    setInterval(timer, 1000);
+}
+ function countStart () {
+    var fiveMinutes = 10,
+        display = document.getElementById('countdown');
+    startTimer(fiveMinutes, display);
+};
+//END COUNTDOWN
+
+
+
+//BG OPACITY
+
+/*bod.onclick= function(){
+console.log('opac');
+var element = document.getElementById("ontop");
+var targetOpacity = 0;
+  var  currentOpacity;
+   var interval = false;
+
+
+
+interval = setInterval(function() {
+
+   currentOpacity = element.style.background-opacity;
+
+   if (currentOpacity > targetOpacity) {
+      currentOpacity -= 0.1;
+      element.style.opacity = currentOpacity;
+
+
+   } else {
+      clearInterval(interval);
+   }
+
+
+}, 100);
+}*/

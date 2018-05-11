@@ -30,7 +30,7 @@
 </head>
 <body>
 	
-	
+	<div class="bg" id="ontop" style="/*background-opacity: 1;*/">
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container" id="bigboi">
@@ -42,7 +42,7 @@
         <div class="twelve columns">
     <div class="eight columns offset-by-two">
 
-        <h1 class="example-screen hide" style="margin-top: 15%; margin-left:4%;">Photobooth</h1>
+        <h1 class="example-screen" style="margin-top: 15%; margin-left:28%;">Photobooth</h1>
         <h4 class="example-screen hide" style="margin-top: 5%; margin-left:4%;">Your photo is printing, would you like an email copy?</h4>
 
 
@@ -58,24 +58,24 @@
                 <div id="second" class="nine columns offset-by-three hide">
 
                   <img id="reticle" class="hide animated overlay" src="images/reticle.svg" type="image/svg+xml"></img>
-                  <form class="email_form" action="index.html" name="demo" method="post">
+                  <form class="email_form hide" action="index.html" name="demo" method="post">
       <label>
         <input class="input-name" type="text" name="name" value="" style="font-size:1.8rem!important; ">
       </label>
     </form>
-                  <span class="countdown hide"></span>
+                  <span id="countdown" class="countdown hide">10</span>
         <video id="screenshot-video" autoplay class="example-screen vidblock hide animated"></video>
 
         </div>
-<!--animgradbehind animgradbg on init -->
-                <div id="init" class="six columns offset-by-three show" style="margin-top: 20%;padding-top: 2%; padding-bottom: 1.5%;">
-                   <h1 class="show" style="color:#e55934;">Thanks!,<br> Please pick up your print from the front of the booth.</h1>
+
+                <div id="init" class="six columns offset-by-three animgradbg animgradbehind show" style="padding-top: 2%; padding-bottom: 1.5%;">
+                   <h1 class="hide" style="color:#e55934;">Thanks!<br> Please pick up your print from the front of the booth.</h1>
 
         
-        <img id="camera" class="hide animated" src="images/camera.svg" type="image/svg+xml" style="width:45%; margin-bottom:27%; margin-left: 10%"></img>
+        <img id="camera" class="animated" src="images/camera.svg" type="image/svg+xml" style="width:45%; margin-bottom:27%; margin-left: 10%"></img>
         
-        <img id="booth" class="hide animated" src="images/booth.svg" type="image/svg+xml" style="width:20%; margin-left:15%;"></img>
-        <h2 class="hide" style="margin-left: 12.5%; margin-bottom: 10%; margin-top: -20%;">Tap to begin</h2>
+        <img id="booth" class="animated" src="images/booth.svg" type="image/svg+xml" style="width:20%; margin-left:15%;"></img>
+        <h2 class="" style="margin-left: 12.5%; margin-bottom: 10%; margin-top: -20%;">Tap to begin</h2>
 
          
 
@@ -116,6 +116,7 @@
     
 
         </div>
+      </div>
    
 
 
