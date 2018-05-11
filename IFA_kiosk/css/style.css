@@ -4,9 +4,10 @@ html {
 body {
     height: 100%;
     margin: 0;
-     background: linear-gradient(to bottom, #e55934, #FFCFC1); /*Standard*/
+    /* background: linear-gradient(to bottom, #e55934, #FFCFC1); /*Standard*/
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-color: #fff!important; 
 }
 
 @font-face {
@@ -147,6 +148,15 @@ rect.btn {
     margin-top:13%; 
     margin-left: 15.5%;
 }
+.email_form{
+	position:absolute;
+    float:left;
+    width:15%;
+    min-height:100px;
+    z-index:300000;
+    margin-top:10%; 
+    margin-left: 6.5%;
+}
 
 .countdown{
 	position:absolute;
@@ -157,4 +167,12 @@ rect.btn {
     /*margin-top:13%; */
     margin-left: 42.5%;
     font-size: 6.0rem;
+}
+.kbbuttons{
+	margin-left: 41%;
+	margin-top: 10px;
+}
+.sendbutton{
+margin-left: 5px;
+margin-top: 10px;
 }

@@ -181,11 +181,11 @@ init.onclick = function() {
  vidscreen.className += "  show fadeInLeft";
  vidscreen.classList.remove("hide");
 
-cameraBtn.classList.remove("hide");
- cameraBtn.className += " show fadeInLeft";
+//cameraBtn.classList.remove("hide");
+ //cameraBtn.className += " show fadeInLeft";
   
-printBtn.classList.remove("hide");
- printBtn.className += " show fadeInLeft";
+//printBtn.classList.remove("hide");
+// printBtn.className += " show fadeInLeft";
  
   secondrow.className += " show";
  // secondrow.classList.remove("animgradbg");
@@ -250,8 +250,8 @@ function initanim(){
   function reticleAnim(){
 
   //init.classList.remove("fadeInUp");
-  ret.className += " show";
-  ret.classList.remove("hide");
+ // ret.className += " show";
+ // ret.classList.remove("hide");
   console.log('ret');
  // init.classList.remove("animated");
  // console.log("spazzotron avoided");

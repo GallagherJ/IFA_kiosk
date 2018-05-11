@@ -126,7 +126,7 @@ body {
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #ffffff;
-background: linear-gradient(to top, #e55934, #ffffff); /*Standard*/ }
+/*background: linear-gradient(to top, #e55934, #ffffff); /*Standard*/ }
 
 
 /* Typography
@@ -147,7 +147,7 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
   h1 { font-size: 6.0rem; }
   h2 { font-size: 4.2rem; }
   h3 { font-size: 3.6rem; }
-  h4 { font-size: 3.0rem; }
+  h4 { font-size: 3.0rem; color: #e55934 }
   h5 { font-size: 2.4rem; }
   h6 { font-size: 1.5rem; }
 }
@@ -235,7 +235,8 @@ input[type="url"],
 input[type="password"],
 textarea,
 select {
-  height: 38px;
+  height: 50px;
+  width:400px!important;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
   background-color: #fff;
   border: 1px solid #D1D1D1;

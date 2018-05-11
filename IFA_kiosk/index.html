@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/basic.css" charset="utf-8">
 
 </head>
 <body>
@@ -39,9 +40,10 @@
       <div class="one-half column" style="margin-top: 15%">-->
 
         <div class="twelve columns">
-    <div class="four columns offset-by-four">
+    <div class="eight columns offset-by-two">
 
-        <h1 class="example-screen" style="margin-top: 15%; margin-left:4%">Photobooth</h1>
+        <h1 class="example-screen hide" style="margin-top: 15%; margin-left:4%;">Photobooth</h1>
+        <h4 class="example-screen" style="margin-top: 5%; margin-left:4%;">Your photo is printing, would you like an email copy?</h4>
 
 
       </div>
@@ -55,7 +57,12 @@
 
                 <div id="second" class="nine columns offset-by-three hide">
                   <img id="reticle" class="hide animated overlay" src="images/reticle.svg" type="image/svg+xml"></img>
-                  <span class="countdown">10</span>
+                  <form class="email_form" action="index.html" name="demo" method="post">
+      <label>
+        <input class="input-name" type="text" name="name" value="" style="font-size:1.8rem!important; ">
+      </label>
+    </form>
+                  <span class="countdown hide"></span>
         <video id="screenshot-video" autoplay class="example-screen vidblock hide animated"></video>
 
         </div>
@@ -83,14 +90,28 @@
     <div class="four columns offset-by-four">
   
         
-      <button id="screenshot-button" class="example-screen animated hide">TAKE PHOTO</button>
-        <button id="printButton" class="example-screen animated hide">PRINT</button> </div> 
+      <button id="screenshot-button" class="example-screen animated show">NO, THANKS</button>
+        <button id="printButton" class="example-screen animated show">EMAIL</button> </div> 
 
       </div>
     </div>
 
 
-      
+     <!-- Start Keyboard --> 
+
+    <!-- <div class = "keycontainer hide">
+       <form class="" action="index.html" name="demo" method="post" >
+      <label>
+        custom filter
+        <input class="input-name" type="text" name="name" value="">
+      </label>
+    </form>
+  </div>-->
+
+
+    <div class="keyboard-host">
+
+    
 
         </div>
    
@@ -102,7 +123,10 @@
 
 
 </body>
-<script type="text/javascript" src="js/main.js"></script> 
+<script type="text/javascript" src="js/main.js"></script>
+<script src="js/keyboard.js" charset="utf-8"></script>
+<script src="js/keyboard-layout.js" charset="utf-8"></script> 
+<script src="js/kb.js" charset="utf-8"></script> 
 
 </html>
 
