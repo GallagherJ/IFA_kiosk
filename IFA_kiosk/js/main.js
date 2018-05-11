@@ -44,6 +44,7 @@ navigator.mediaDevices.getUserMedia(constraints).
     d.className += " flash";
     photoPressed=true;
     console.log(photoPressed);
+
     
   }
    else if (photoPressed === true){
@@ -169,6 +170,7 @@ var vidscreen=document.getElementById('screenshot-video');
 var cameraBtn=document.getElementById('screenshot-button');
 var printBtn=document.getElementById('printButton');
 var rs= document.getElementById('resize');
+var ret=document.getElementById('reticle');
 
 init.onclick = function() {
 
@@ -186,13 +188,18 @@ printBtn.classList.remove("hide");
  printBtn.className += " show fadeInLeft";
  
   secondrow.className += " show";
-  secondrow.classList.remove("animgradbg");
+ // secondrow.classList.remove("animgradbg");
 
   rs.style.height = "500px";
 
 //document.getElementById('init').onclick = '';
 
+//RETICLE
+
+//initbtn.addEventListener("webkitAnimationEnd", reticleAnim);
+
 idleWatcher = setTimeout(idleTime, 120000);
+showRet = setTimeout(reticleAnim,800);
 
 }
 
@@ -224,7 +231,9 @@ function idleTime() {
 
 
 
-  setTimeout(initanim, 800);
+  //setTimeout(initanim, 800);
+
+  initbtn.addEventListener("webkitAnimationEnd", initanim);
 
   }
 
@@ -235,5 +244,16 @@ function initanim(){
   init.classList.remove("fadeInUp");
   init.classList.remove("animated");
   console.log("spazzotron avoided");
+
+  }
+
+  function reticleAnim(){
+
+  //init.classList.remove("fadeInUp");
+  ret.className += " show";
+  ret.classList.remove("hide");
+  console.log('ret');
+ // init.classList.remove("animated");
+ // console.log("spazzotron avoided");
 
   }

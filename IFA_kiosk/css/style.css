@@ -37,7 +37,7 @@ body {
 	margin-left: 10%;
 }
 #screenshot-video{
-	margin-left:-18%; 
+	margin-left:-6.8%; 
 	border: 2px solid rgba(255, 255, 255, .2);
 }
 .hide{
@@ -138,3 +138,23 @@ rect.btn {
   stroke-opacity:0;
 }
 */
+.overlay{
+	position:absolute;
+    float:left;
+    width:15%;
+    min-height:100px;
+    z-index:300000;
+    margin-top:13%; 
+    margin-left: 15.5%;
+}
+
+.countdown{
+	position:absolute;
+    float:right;
+    width:15%;
+    min-height:100px;
+    z-index:300000;
+    /*margin-top:13%; */
+    margin-left: 42.5%;
+    font-size: 6.0rem;
+}
