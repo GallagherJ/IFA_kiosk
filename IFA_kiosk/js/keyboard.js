@@ -217,6 +217,7 @@ if( !exports ) var exports = {};
 
       cancelButton.onclick = function() {
         document.activeElement.blur()
+        //endItall()
       }.bind(this);
 
     
@@ -229,6 +230,7 @@ if( !exports ) var exports = {};
 
      sendButton.onclick = function() {
         document.activeElement.blur()
+        //endItall()
       }.bind(this);
 
       //Email func
@@ -398,12 +400,6 @@ if( !exports ) var exports = {};
         {"symbol": "2"},
         {"symbol": "3"}
       ],
-     /*  [
-
-        {"label": "cancel", "symbol": " "},
-         {"label": "send", "symbol": " "}
-     
-      ]*/
     ]
   };
 })(exports || {}, window);

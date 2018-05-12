@@ -2,6 +2,25 @@
 
 var idle = 1;
 
+var cameraBtn=document.getElementById('screenshot-button');
+var tha=document.getElementById('thanks');
+
+var bigboi = document.getElementById('bigboi');
+var initbtn= document.getElementById('init');
+var secondrow= document.getElementById('second');
+var cam=document.getElementById('camera');
+var booth=document.getElementById('booth');
+var vidscreen=document.getElementById('screenshot-video');
+
+var printBtn=document.getElementById('printButton');
+var rs= document.getElementById('resize');
+var ret=document.getElementById('reticle');
+var bod = document.getElementById('ontop');
+var count =document.getElementById('countdown');
+var photoTaken=false;
+var lo= document.getElementById('logo');
+var pm=document.getElementById('printmsg');
+var ent=document.getElementById('enteremail');
 
 //display and screenshot
 
@@ -73,7 +92,7 @@ navigator.mediaDevices.getUserMedia(constraints).
 
  //print
 
- printButton.onclick= function(){
+ printBtn.onclick= function(){
  window.print();
   ent.className += " fadeIn show";
   ent.classList.remove("hide");
@@ -83,6 +102,46 @@ navigator.mediaDevices.getUserMedia(constraints).
  //idleWatcher = setTimeout(idleTime, 120000);
 
 }
+
+cameraBtn.onclick = function(){
+
+  vidscreen.className += "  hide";
+ vidscreen.classList.remove("show");
+ vidscreen.classList.remove("fadeInLeft");
+ //vidscreen.classList.remove("animated");
+
+ cameraBtn.className += " hide";
+   cameraBtn.classList.remove("show");
+ cameraBtn.classList.remove("fadeInLeft");
+ //cameraBtn.classList.remove("animated");
+
+ printBtn.className += " hide";
+ printBtn.classList.remove("show");
+ printBtn.classList.remove("fadeInLeft");
+ //printBtn.classList.remove("animated");
+ //secondrow.className += " hide";
+  //secondrow.classList.remove("show");
+
+  pm.className += " hide";
+ pm.classList.remove("show");
+
+ tha.className += " show fadeInUp";
+ tha.classList.remove("hide");
+
+setTimeout("location.reload(true);",5000);
+
+}
+
+/*function endItall(){
+  console.log('wtf');
+}*/
+
+
+
+  
+
+
+
 
 //send email
 
@@ -176,24 +235,6 @@ function enableScroll() {
 
 //INIT (LOADING SCREEN)
 
-var bigboi = document.getElementById('bigboi');
-var initbtn= document.getElementById('init');
-var secondrow= document.getElementById('second');
-var cam=document.getElementById('camera');
-var booth=document.getElementById('booth');
-var vidscreen=document.getElementById('screenshot-video');
-var cameraBtn=document.getElementById('screenshot-button');
-var printBtn=document.getElementById('printButton');
-var rs= document.getElementById('resize');
-var ret=document.getElementById('reticle');
-var bod = document.getElementById('ontop');
-var count =document.getElementById('countdown');
-var photoTaken=false;
-var lo= document.getElementById('logo');
-var pm=document.getElementById('printmsg');
-var ent=document.getElementById('enteremail');
-
-
 
 init.onclick = function() {
 
@@ -251,6 +292,23 @@ function idleTime() {
  //secondrow.className += " hide";
   //secondrow.classList.remove("show");
 
+//beginning of the jank
+   pm.className += " hide";
+ pm.classList.remove("show");
+
+
+ tha.className += " hide";
+ tha.classList.remove("show");
+
+ bod.classList.remove("toWhitebg");
+ bod.className += "show";
+
+ lo.className += "show";
+ lo.classList.remove("hide");
+  vidscreen.play();
+
+  //end jank
+
 
 
 
@@ -291,6 +349,8 @@ function initanim(){
   function countdown(){
     count.className += " fadeIn";
     count.classList.remove("hide");
+
+
     count.addEventListener("webkitAnimationEnd", countStart);
   }
 
@@ -328,6 +388,8 @@ function startTimer(duration, display) {
             photoTaken=true;
             lo.className += " tealtext";
              bod.className += " toWhitebg";
+             ret.classList.remove("fadeOut");
+             ret.className += " hide";
              setTimeout(startEmail, 2000);
 
         }
