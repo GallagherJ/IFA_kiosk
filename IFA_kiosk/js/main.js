@@ -31,14 +31,20 @@ navigator.mediaDevices.getUserMedia(constraints).
   var photoPressed=false; 
   var d = document.getElementById("screenshot-video");
 
-  button.onclick = function() {
+  function takePhoto() {
     
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext('2d').drawImage(video, 0, 0);
-    img.src = canvas.toDataURL('image/webp');    
+    img.src = canvas.toDataURL('image/webp'); 
 
-    if (photoPressed === false){
+     document.getElementById('screenshot-video').pause();
+    vidscreen.classList.remove("fadeInLeft");
+    d.className += " flash";
+    photoPressed=true;
+    console.log(photoPressed);   
+
+ /*   if (photoPressed === false){
     document.getElementById('screenshot-video').pause();
     vidscreen.classList.remove("fadeInLeft");
     d.className += " flash";
@@ -69,10 +75,19 @@ navigator.mediaDevices.getUserMedia(constraints).
 
  printButton.onclick= function(){
  window.print();
- clearTimeout(idleWatcher);
- idleWatcher = setTimeout(idleTime, 120000);
+  ent.className += " fadeIn show";
+  ent.classList.remove("hide");
+
+
+ //clearTimeout(idleWatcher);
+ //idleWatcher = setTimeout(idleTime, 120000);
 
 }
+
+//send email
+
+
+
 
  /*
 
@@ -173,6 +188,12 @@ var rs= document.getElementById('resize');
 var ret=document.getElementById('reticle');
 var bod = document.getElementById('ontop');
 var count =document.getElementById('countdown');
+var photoTaken=false;
+var lo= document.getElementById('logo');
+var pm=document.getElementById('printmsg');
+var ent=document.getElementById('enteremail');
+
+
 
 init.onclick = function() {
 
@@ -273,7 +294,8 @@ function initanim(){
     count.addEventListener("webkitAnimationEnd", countStart);
   }
 
-//GOOD OL' W3SCHOOLS COUNTDOWN, CHAMPION OF INCLUSION IN ALL MY PROJECTS
+//COUNTDOWN, TAKE PHOTO, SAVE PHOTO
+
 
 function startTimer(duration, display) {
     var start = Date.now(),
@@ -283,6 +305,8 @@ function startTimer(duration, display) {
     function timer() {
         // get the number of seconds that have elapsed since 
         // startTimer() was called
+        if (photoTaken === false){
+
         diff = duration - (((Date.now() - start) / 1000) | 0);
 
         // does the same job as parseInt truncates the float
@@ -298,20 +322,45 @@ function startTimer(duration, display) {
             // add one second so that the count down starts at the full duration
             // example 05:00 not 04:59
             start = Date.now() + 1000;
+            console.log('ctd finished');
+            display.className += " hide";
+            takePhoto();
+            photoTaken=true;
+            lo.className += " tealtext";
+             bod.className += " toWhitebg";
+             setTimeout(startEmail, 2000);
+
         }
+      }
     };
     // we don't want to wait a full second before the timer starts
     timer();
     setInterval(timer, 1000);
 }
  function countStart () {
+  photoTaken=false;
     var fiveMinutes = 10,
         display = document.getElementById('countdown');
     startTimer(fiveMinutes, display);
 };
 //END COUNTDOWN
 
+//PRINT,KEYBOARD,EMAIL
 
+function startEmail(){
+  lo.className += " hide";
+  cameraBtn.classList.remove("hide");
+  cameraBtn.className += " show fadeInLeft";
+  
+  printBtn.classList.remove("hide");
+  printBtn.className += " show fadeInLeft";
+
+  pm.classList.remove("hide");
+  pm.className += " show fadeIn";
+}
+
+
+//END KEYBOARD
 
 //BG OPACITY
 

@@ -209,13 +209,38 @@ if( !exports ) var exports = {};
 
 
       var cancelButton = document.createElement("button");
+      cancelButton.id ="cancelbtn";
        cancelButton.innerHTML = 'CANCEL';
-       cancelButton.classList.add("kbbuttons");
+       cancelButton.classList.add("kbbuttons"); 
+       cancelButton.setAttribute("onclick",sendEmail);     
       this.keyboardEl.appendChild(cancelButton);
+
+      cancelButton.onclick = function() {
+        document.activeElement.blur()
+      }.bind(this);
+
+    
+
       var sendButton = document.createElement("button");
        sendButton.innerHTML = 'SEND';
       sendButton.classList.add("sendbutton");
+      cancelButton.id = "sendbtn";
       this.keyboardEl.appendChild(sendButton);
+
+     sendButton.onclick = function() {
+        document.activeElement.blur()
+      }.bind(this);
+
+      //Email func
+
+      var send = document.getElementsByClassName("sendbutton");
+
+       function sendEmail(){
+  dispatchKeyboardCloseEvent();
+}
+
+//cancel func
+
 
       //FINISHED EDIT
 
