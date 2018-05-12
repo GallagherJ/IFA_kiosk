@@ -216,8 +216,32 @@ if( !exports ) var exports = {};
       this.keyboardEl.appendChild(cancelButton);
 
       cancelButton.onclick = function() {
-        document.activeElement.blur()
-        //endItall()
+         document.activeElement.blur(),
+         vidscreen.className += "  hide",
+ vidscreen.classList.remove("show"),
+ vidscreen.classList.remove("fadeInLeft"),
+ //vidscreen.classList.remove("animated");
+
+ cameraBtn.className += " hide",
+   cameraBtn.classList.remove("show"),
+ cameraBtn.classList.remove("fadeInLeft"),
+ //cameraBtn.classList.remove("animated");
+
+ printBtn.className += " hide",
+ printBtn.classList.remove("show"),
+ printBtn.classList.remove("fadeInLeft"),
+ //printBtn.classList.remove("animated");
+ //secondrow.className += " hide";
+  //secondrow.classList.remove("show");
+
+  pm.className += " hide",
+ pm.classList.remove("show"),
+
+ ent.className += " hide",
+
+ tha.className += " show fadeInUp",
+ tha.classList.remove("hide"),
+        setTimeout("location.reload(true);",5000)
       }.bind(this);
 
     
@@ -229,8 +253,32 @@ if( !exports ) var exports = {};
       this.keyboardEl.appendChild(sendButton);
 
      sendButton.onclick = function() {
-        document.activeElement.blur()
-        //endItall()
+        document.activeElement.blur(),
+         vidscreen.className += "  hide",
+ vidscreen.classList.remove("show"),
+ vidscreen.classList.remove("fadeInLeft"),
+ //vidscreen.classList.remove("animated");
+
+ cameraBtn.className += " hide",
+   cameraBtn.classList.remove("show"),
+ cameraBtn.classList.remove("fadeInLeft"),
+ //cameraBtn.classList.remove("animated");
+
+ printBtn.className += " hide",
+ printBtn.classList.remove("show"),
+ printBtn.classList.remove("fadeInLeft"),
+ //printBtn.classList.remove("animated");
+ //secondrow.className += " hide";
+  //secondrow.classList.remove("show");
+
+  pm.className += " hide",
+ pm.classList.remove("show"),
+
+  ent.className += " hide",
+
+ tha.className += " show fadeInUp",
+ tha.classList.remove("hide"),
+        setTimeout("location.reload(true);",5000)
       }.bind(this);
 
       //Email func
