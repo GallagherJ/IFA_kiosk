@@ -93,7 +93,7 @@ navigator.mediaDevices.getUserMedia(constraints).
  //print
 
  printBtn.onclick= function(){
- window.print();
+ //window.print();
   ent.className += " fadeIn show";
   ent.classList.remove("hide");
 
@@ -410,6 +410,7 @@ function startTimer(duration, display) {
 //PRINT,KEYBOARD,EMAIL
 
 function startEmail(){
+  window.print();
   lo.className += " hide";
   cameraBtn.classList.remove("hide");
   cameraBtn.className += " show fadeInLeft";
