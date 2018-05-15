@@ -61,7 +61,7 @@ navigator.mediaDevices.getUserMedia(constraints).
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext('2d').drawImage(video, 0, 0);
-    img.src = canvas.toDataURL('image/webp'); 
+    img.src = canvas.toDataURL('image/png'); 
 
      document.getElementById('screenshot-video').pause();
     vidscreen.classList.remove("fadeInLeft");
@@ -435,19 +435,32 @@ function startEmail(){
   format: [4, 2]
 })
 
-doc.text('Hello!', 1, 1)
+//doc.text('LOL', 1, 1)
+doc.addImage(img, 'png', 0, 0);
 doc.save('photoprint5.pdf')
 var pdfData = doc.output('datauristring');
-var stringtosend = 
+var str="Visit Microsoft!";
+pdfData=pdfData.replace("data","");
+//pdfData = pdfData.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,'_')
+//pdfData=pdfData.replace("application","");
+//pdfData=pdfData.replace(",","");
+//pdfData=pdfData.replace(":","");
+pdfData=pdfData.slice(24);
+//var n=pdfData.replace("base64","");
+//var stringtosend = JSON.stringify(pdfData);
+//var actual = JSON.parse(atob(pdfData));
+//stringtosend.replace('data', 'blep');
+//stringtosend.trim();
 console.log(pdfData);
 //var encoded = toString((pdfData));
 //console.log(encoded);
+// data:application/pdf;base64,
 
 var printJobPayload = {
     "printerId": 400871,
     "title": "hahah it works lol",
     "contentType": "pdf_base64",
-    "content": "JVBERi0xLjMKMyAwIG9iago8PC9UeXBlIC9QYWdlCi9QYXJlbnQgMSAwIFIKL1Jlc291cmNlcyAyIDAgUgovTWVkaWFCb3ggWzAgMCAyODguMDAgMTQ0LjAwXQovQ29udGVudHMgNCAwIFIKPj4KZW5kb2JqCjQgMCBvYmoKPDwvTGVuZ3RoIDY2Pj4Kc3RyZWFtCjE0LjQwIHcKMCBHCkJUCi9GMSAxNiBUZgoxOC40IFRMCjAgZwo3Mi4wMCA3Mi4wMCBUZAooSGVsbG8hKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCjEgMCBvYmoKPDwvVHlwZSAvUGFnZXMKL0tpZHMgWzMgMCBSIF0KL0NvdW50IDEKPj4KZW5kb2JqCjUgMCBvYmoKPDwvQmFzZUZvbnQvSGVsdmV0aWNhL1R5cGUvRm9udAovRW5jb2RpbmcvV2luQW5zaUVuY29kaW5nCi9TdWJ0eXBlL1R5cGUxPj4KZW5kb2JqCjYgMCBvYmoKPDwvQmFzZUZvbnQvSGVsdmV0aWNhLUJvbGQvVHlwZS9Gb250Ci9FbmNvZGluZy9XaW5BbnNpRW5jb2RpbmcKL1N1YnR5cGUvVHlwZTE+PgplbmRvYmoKNyAwIG9iago8PC9CYXNlRm9udC9IZWx2ZXRpY2EtT2JsaXF1ZS9UeXBlL0ZvbnQKL0VuY29kaW5nL1dpbkFuc2lFbmNvZGluZwovU3VidHlwZS9UeXBlMT4+CmVuZG9iago4IDAgb2JqCjw8L0Jhc2VGb250L0hlbHZldGljYS1Cb2xkT2JsaXF1ZS9UeXBlL0ZvbnQKL0VuY29kaW5nL1dpbkFuc2lFbmNvZGluZwovU3VidHlwZS9UeXBlMT4+CmVuZG9iago5IDAgb2JqCjw8L0Jhc2VGb250L0NvdXJpZXIvVHlwZS9Gb250Ci9FbmNvZGluZy9XaW5BbnNpRW5jb2RpbmcKL1N1YnR5cGUvVHlwZTE+PgplbmRvYmoKMTAgMCBvYmoKPDwvQmFzZUZvbnQvQ291cmllci1Cb2xkL1R5cGUvRm9udAovRW5jb2RpbmcvV2luQW5zaUVuY29kaW5nCi9TdWJ0eXBlL1R5cGUxPj4KZW5kb2JqCjExIDAgb2JqCjw8L0Jhc2VGb250L0NvdXJpZXItT2JsaXF1ZS9UeXBlL0ZvbnQKL0VuY29kaW5nL1dpbkFuc2lFbmNvZGluZwovU3VidHlwZS9UeXBlMT4+CmVuZG9iagoxMiAwIG9iago8PC9CYXNlRm9udC9Db3VyaWVyLUJvbGRPYmxpcXVlL1R5cGUvRm9udAovRW5jb2RpbmcvV2luQW5zaUVuY29kaW5nCi9TdWJ0eXBlL1R5cGUxPj4KZW5kb2JqCjEzIDAgb2JqCjw8L0Jhc2VGb250L1RpbWVzLVJvbWFuL1R5cGUvRm9udAovRW5jb2RpbmcvV2luQW5zaUVuY29kaW5nCi9TdWJ0eXBlL1R5cGUxPj4KZW5kb2JqCjE0IDAgb2JqCjw8L0Jhc2VGb250L1RpbWVzLUJvbGQvVHlwZS9Gb250Ci9FbmNvZGluZy9XaW5BbnNpRW5jb2RpbmcKL1N1YnR5cGUvVHlwZTE+PgplbmRvYmoKMTUgMCBvYmoKPDwvQmFzZUZvbnQvVGltZXMtSXRhbGljL1R5cGUvRm9udAovRW5jb2RpbmcvV2luQW5zaUVuY29kaW5nCi9TdWJ0eXBlL1R5cGUxPj4KZW5kb2JqCjE2IDAgb2JqCjw8L0Jhc2VGb250L1RpbWVzLUJvbGRJdGFsaWMvVHlwZS9Gb250Ci9FbmNvZGluZy9XaW5BbnNpRW5jb2RpbmcKL1N1YnR5cGUvVHlwZTE+PgplbmRvYmoKMTcgMCBvYmoKPDwvQmFzZUZvbnQvWmFwZkRpbmdiYXRzL1R5cGUvRm9udAovRW5jb2RpbmcvU3RhbmRhcmRFbmNvZGluZwovU3VidHlwZS9UeXBlMT4+CmVuZG9iagoyIDAgb2JqCjw8Ci9Qcm9jU2V0IFsvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJXQovRm9udCA8PAovRjEgNSAwIFIKL0YyIDYgMCBSCi9GMyA3IDAgUgovRjQgOCAwIFIKL0Y1IDkgMCBSCi9GNiAxMCAwIFIKL0Y3IDExIDAgUgovRjggMTIgMCBSCi9GOSAxMyAwIFIKL0YxMCAxNCAwIFIKL0YxMSAxNSAwIFIKL0YxMiAxNiAwIFIKL0YxMyAxNyAwIFIKPj4KL1hPYmplY3QgPDwKPj4KPj4KZW5kb2JqCjE4IDAgb2JqCjw8Ci9Qcm9kdWNlciAoanNQREYgMS54LW1hc3RlcikKL0NyZWF0aW9uRGF0ZSAoRDoyMDE4MDUxNDIyNDcxMS0wNCcwMCcpCj4+CmVuZG9iagoxOSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovUGFnZXMgMSAwIFIKL09wZW5BY3Rpb24gWzMgMCBSIC9GaXRIIG51bGxdCi9QYWdlTGF5b3V0IC9PbmVDb2x1bW4KPj4KZW5kb2JqCnhyZWYKMCAyMAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAyMzIgMDAwMDAgbiAKMDAwMDAwMTUyNiAwMDAwMCBuIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAxMTggMDAwMDAgbiAKMDAwMDAwMDI4OSAwMDAwMCBuIAowMDAwMDAwMzc5IDAwMDAwIG4gCjAwMDAwMDA0NzQgMDAwMDAgbiAKMDAwMDAwMDU3MiAwMDAwMCBuIAowMDAwMDAwNjc0IDAwMDAwIG4gCjAwMDAwMDA3NjIgMDAwMDAgbiAKMDAwMDAwMDg1NiAwMDAwMCBuIAowMDAwMDAwOTUzIDAwMDAwIG4gCjAwMDAwMDEwNTQgMDAwMDAgbiAKMDAwMDAwMTE0NyAwMDAwMCBuIAowMDAwMDAxMjM5IDAwMDAwIG4gCjAwMDAwMDEzMzMgMDAwMDAgbiAKMDAwMDAwMTQzMSAwMDAwMCBuIAowMDAwMDAxNzYyIDAwMDAwIG4gCjAwMDAwMDE4NTMgMDAwMDAgbiAKdHJhaWxlcgo8PAovU2l6ZSAyMAovUm9vdCAxOSAwIFIKL0luZm8gMTggMCBSCj4+CnN0YXJ0eHJlZgoxOTU3CiUlRU9G",
+    "content": pdfData,
     "source": "javascript api client"
 }
 sendPrint(printJobPayload);
