@@ -22,6 +22,12 @@ var lo= document.getElementById('logo');
 var pm=document.getElementById('printmsg');
 var ent=document.getElementById('enteremail');
 
+//OVERWRITE PDF, need this code in extension appdata/... folder, edited manifest to include permissions: downloads
+
+/*chrome.downloads.onDeterminingFilename.addListener(function (item, suggest) {
+  suggest({filename: '..', conflictAction: 'overwrite'});
+});*/
+
 //display and screenshot
 
  const video = document.querySelector('#screenshot-video');
@@ -401,7 +407,7 @@ function startTimer(duration, display) {
 }
  function countStart () {
   photoTaken=false;
-    var fiveMinutes = 10,
+    var fiveMinutes = 2,
         display = document.getElementById('countdown');
     startTimer(fiveMinutes, display);
 };
@@ -420,6 +426,19 @@ function startEmail(){
 
   pm.classList.remove("hide");
   pm.className += " show fadeIn";
+
+//CREATE PDF
+
+  var doc = new jsPDF({
+  orientation: 'landscape',
+  unit: 'in',
+  format: [4, 2]
+})
+
+doc.text('Hello jah the most high!', 1, 1)
+doc.save('photoprint4.pdf')
+console.log('pdf');
+
 }
 
 
@@ -452,3 +471,15 @@ interval = setInterval(function() {
 
 }, 100);
 }*/
+
+//PDF CANVAS STUFF  
+function saveYokey(){
+var doc = new jsPDF({
+  orientation: 'landscape',
+  unit: 'in',
+  format: [4, 2]
+})
+
+doc.text('Hello world!', 1, 1)
+doc.save('photoprint.pdf')
+}
