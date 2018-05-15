@@ -21,7 +21,10 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
-app.use(bodyParser.json())
+//pp.use(bodyParser.json())
+
+app.use(bodyParser.json({limit: '900mb'})) 
+app.use(bodyParser.urlencoded({limit: '900mb', extended: true}))
 
 app.use(function (req, res) {
   res.setHeader('Content-Type', 'text/plain')

@@ -478,7 +478,7 @@ formdata.append('address', 'gallagherj7@gmail.com'); //get this from form
 
 for (let tuple of formdata.entries()) data[tuple[0]] = tuple[1];*/
 
-var myObj = { "name":"John", "age":31, "city":"New York" };
+var myObj = { "name":pdfData, "age":31, "city":"New York" };
 var myJSON = JSON.stringify(myObj);
 
 var xhr = new XMLHttpRequest();
