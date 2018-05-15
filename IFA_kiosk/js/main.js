@@ -430,13 +430,13 @@ function startEmail(){
 //CREATE PDF
 
   var doc = new jsPDF({
-  orientation: 'landscape',
+  orientation: 'portrait',
   unit: 'in',
-  format: [4, 2]
+  format: [8.3, 11.7] //CHANGE THIS TO 4,6
 })
 
 //doc.text('LOL', 1, 1)
-doc.addImage(img, 'png', 0, 0);
+doc.addImage(img, 'png', 0, 0, 6, 4);//add 180,150 to size image on paper
 doc.save('photoprint5.pdf')
 var pdfData = doc.output('datauristring');
 var str="Visit Microsoft!";
@@ -463,7 +463,9 @@ var printJobPayload = {
     "content": pdfData,
     "source": "javascript api client"
 }
-sendPrint(printJobPayload);
+setTimeout(sendPrint(printJobPayload)
+, 1000);
+
 }
 
 
