@@ -21,6 +21,8 @@ var photoTaken=false;
 var lo= document.getElementById('logo');
 var pm=document.getElementById('printmsg');
 var ent=document.getElementById('enteremail');
+//var data = new FormData();
+//var data = {};
 
 //OVERWRITE PDF, need this code in extension appdata/... folder, edited manifest to include permissions: downloads
 
@@ -432,7 +434,7 @@ function startEmail(){
   var doc = new jsPDF({
   orientation: 'portrait',
   unit: 'in',
-  format: [8.3, 11.7] //CHANGE THIS TO 4,6
+  format: [8.5, 11] //CHANGE THIS TO 4,6
 })
 
 //doc.text('LOL', 1, 1)
@@ -457,14 +459,35 @@ console.log(pdfData);
 // data:application/pdf;base64,
 
 var printJobPayload = {
-    "printerId": 400871,
-    "title": "hahah it works lol",
+    "printerId": 402555,
+    "title": "brother test",
     "contentType": "pdf_base64",
     "content": pdfData,
     "source": "javascript api client"
 }
-setTimeout(sendPrint(printJobPayload)
-, 1000);
+/*setTimeout(sendPrint(printJobPayload)
+, 1000);*/
+
+//POSTIN'
+let data = {};
+let formdata = new FormData(/*theform*/);
+
+
+formdata.append('attachment', pdfData);
+formdata.append('address', 'gallagherj7@gmail.com'); //get this from form
+
+for (let tuple of formdata.entries()) data[tuple[0]] = tuple[1];
+
+var xhr = new XMLHttpRequest();
+xhr.open('POST', 'http://127.0.0.1:3000', true);
+xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+xhr.onload = function () {
+    // do something to response
+    console.log(this.responseText);
+};
+console.log(data);
+xhr.send(JSON.stringify(data));
+
 
 }
 
