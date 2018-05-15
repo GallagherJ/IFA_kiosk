@@ -1,5 +1,13 @@
 'use strict';
 const nodemailer = require('nodemailer');
+var inlineBase64 = require('nodemailer-plugin-inline-base64');
+
+const express = require('express')
+const app = express()
+
+app.get('/', (req, res) => res.send('Hello World!'))
+
+app.listen(3000, () => console.log('Example app listening on port 3000!'))
 
 // Generate test SMTP service account from ethereal.email
 // Only needed if you don't have a real mail account for testing
@@ -26,6 +34,9 @@ nodemailer.createTestAccount((err, account) => {
         text: 'Thanks for stopping by!', // plain text body
         html: '<b>Hello world?</b>' // html body
     };
+
+    //base64
+    transporter.use('compile', inlineBase64({cidPrefix: 'pb_'}));
 
     // send mail with defined transport object
     transporter.sendMail(mailOptions, (error, info) => {

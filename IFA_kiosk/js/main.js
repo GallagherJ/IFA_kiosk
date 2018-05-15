@@ -416,7 +416,7 @@ function startTimer(duration, display) {
 //PRINT,KEYBOARD,EMAIL
 
 function startEmail(){
-  window.print();
+  //window.print();
   lo.className += " hide";
   cameraBtn.classList.remove("hide");
   cameraBtn.className += " show fadeInLeft";

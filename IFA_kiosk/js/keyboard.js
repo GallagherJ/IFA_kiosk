@@ -220,6 +220,10 @@ if( !exports ) var exports = {};
          vidscreen.className += "  hide",
  vidscreen.classList.remove("show"),
  vidscreen.classList.remove("fadeInLeft"),
+
+ ent.classList.remove("show"),
+  ent.className += " hide",
+
  //vidscreen.classList.remove("animated");
 
  cameraBtn.className += " hide",
@@ -237,7 +241,7 @@ if( !exports ) var exports = {};
   pm.className += " hide",
  pm.classList.remove("show"),
 
- ent.className += " hide",
+
 
  tha.className += " show fadeInUp",
  tha.classList.remove("hide"),
@@ -263,6 +267,9 @@ if( !exports ) var exports = {};
    cameraBtn.classList.remove("show"),
  cameraBtn.classList.remove("fadeInLeft"),
  //cameraBtn.classList.remove("animated");
+  ent.classList.remove("show"),
+  ent.className += " hide",
+ 
 
  printBtn.className += " hide",
  printBtn.classList.remove("show"),
@@ -274,7 +281,7 @@ if( !exports ) var exports = {};
   pm.className += " hide",
  pm.classList.remove("show"),
 
-  ent.className += " hide",
+  
 
  tha.className += " show fadeInUp",
  tha.classList.remove("hide"),
