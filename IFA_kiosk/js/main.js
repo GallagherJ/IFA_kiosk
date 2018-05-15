@@ -469,24 +469,27 @@ var printJobPayload = {
 , 1000);*/
 
 //POSTIN'
-let data = {};
-let formdata = new FormData(/*theform*/);
+/*let data = {};
+let formdata = new FormData(/*theform);
 
 
 formdata.append('attachment', pdfData);
 formdata.append('address', 'gallagherj7@gmail.com'); //get this from form
 
-for (let tuple of formdata.entries()) data[tuple[0]] = tuple[1];
+for (let tuple of formdata.entries()) data[tuple[0]] = tuple[1];*/
+
+var myObj = { "name":"John", "age":31, "city":"New York" };
+var myJSON = JSON.stringify(myObj);
 
 var xhr = new XMLHttpRequest();
 xhr.open('POST', 'http://127.0.0.1:3000', true);
-xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+xhr.setRequestHeader('Content-Type', 'application/JSON; charset=UTF-8');
 xhr.onload = function () {
     // do something to response
     console.log(this.responseText);
 };
-console.log(data);
-xhr.send(JSON.stringify(data));
+//console.log(printJobPayload);
+xhr.send(myJSON);
 
 
 }

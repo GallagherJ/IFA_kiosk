@@ -3,33 +3,103 @@ const nodemailer = require('nodemailer');
 var inlineBase64 = require('nodemailer-plugin-inline-base64');
 
 
+
+
+//express aka the devil
 const express = require('express')
+//var multer  = require('multer')
+//var upload = multer({ dest: 'uploads/' })
+var bodyParser = require('body-parser')
+
+//var multipart = require('connect-multiparty');
+var cors = require('cors')
 const app = express()
 
-app.use(express.json());       // to support JSON-encoded bodies
-//app.use(express.urlencoded()); // to support URL-encoded bodies
+app.use(cors())
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
+app.use(function (req, res) {
+  res.setHeader('Content-Type', 'text/plain')
+  res.write('you posted:\n')
+  res.end(JSON.stringify(req.body, null, 2))
+})
+
+/*module.exports.express = {
+    bodyParser: function() {
+        return require('express').bodyParser({limit: '900mb'});
+    }
+}*/
+
+
+
+/*app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded()); // to support URL-encoded bodies */
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
 
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
+});*/
+
+app.get('/', function(req, res) {
+  // Handle the get for this route
 });
 
+app.post('/', function(req, res) {
+//var received=req.body;
 
-app.get('/', function(req, res, next) {
+ res.send('Roastie POSTie');
+
+});
+
+/*var multipartMiddleware = multipart();
+app.post('/', multipartMiddleware, function(req, resp, next) {
+    var attach = req.files;
+   var address = req.body;
+  console.log(attach,address);
+   res.send('Roastie POSTie'+attach+''+address);
+  // don't forget to delete all req.files when done
+});*/
+
+
+
+/*app.get('/', function(req, res, next) {
   // Handle the get for this route
 });
 
 app.post('/', function(req, res, next) {
   
-  var attach = req.body.attachment,
-       address = req.body.address;
+  var attach = req.body;
+      // address = req.body.address;
 
-        res.send('Roastie POSTie'+attach+''+address);
-});
+        res.send('Roastie POSTie'+attach);
+        console.log('attach');
+});*/
 
+/*app.post('/', upload.array('photos', 1), function (req, res, next) {
+  // req.files is array of `photos` files
+  // req.body will contain the text fields, if there were any
+
+  var attach = req.files,
+   address = req.body;
+   res.send('Roastie POSTie'+' '+attach+' '+address);
+})*/
+
+/*app.post('/', upload.single('avatar'), function (req, res, next) {
+  // req.file is the `avatar` file
+  // req.body will hold the text fields, if there were any
+  var attach = req.file;
+   var address = req.body;
+   console.log('Roastie POSTie'+' '+attach+' '+address);
+})
+*/
 
 
 // Generate test SMTP service account from ethereal.email
