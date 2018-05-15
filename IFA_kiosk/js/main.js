@@ -435,9 +435,10 @@ function startEmail(){
   format: [4, 2]
 })
 
-doc.text('Hello jah the most high!', 1, 1)
-doc.save('photoprint4.pdf')
-console.log('pdf');
+doc.text('Hello!', 1, 1)
+doc.save('photoprint5.pdf')
+var pdfData = doc.output('datauristring');
+console.log(pdfData);
 
 }
 
@@ -472,8 +473,15 @@ interval = setInterval(function() {
 }, 100);
 }*/
 
+//BEGIN PRINTNODE
+
+
+
+
+//END PRINTNODE
+
 //PDF CANVAS STUFF  
-function saveYokey(){
+/*function saveYokey(){
 var doc = new jsPDF({
   orientation: 'landscape',
   unit: 'in',
@@ -483,3 +491,5 @@ var doc = new jsPDF({
 doc.text('Hello world!', 1, 1)
 doc.save('photoprint.pdf')
 }
+*/
+//END CANVAS
