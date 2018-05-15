@@ -453,7 +453,7 @@ pdfData=pdfData.slice(24);
 //var actual = JSON.parse(atob(pdfData));
 //stringtosend.replace('data', 'blep');
 //stringtosend.trim();
-console.log(pdfData);
+//console.log(pdfData);
 //var encoded = toString((pdfData));
 //console.log(encoded);
 // data:application/pdf;base64,
