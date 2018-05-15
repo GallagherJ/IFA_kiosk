@@ -6,19 +6,22 @@ const nodemailer = require('nodemailer');
 nodemailer.createTestAccount((err, account) => {
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
+        host: 'smtp-mail.outlook.com',
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-            user: account.user, // generated ethereal user
-            pass: account.pass // generated ethereal password
-        }
+            user: "photokiosk@outlook.com", // generated ethereal user
+            pass: "Elephantsredolantgrimacefear" // generated ethereal password
+        },
+        tls: {
+        ciphers:'SSLv3'
+    }
     });
 
     // setup email data with unicode symbols
     let mailOptions = {
         from: '"bing photobooth" <photokiosk@outlook.com>', // sender address
-        to: 'bar@example.com, baz@example.com', // list of receivers need var
+        to: 'gallagherj7@gmail.com', // list of receivers need var
         subject: 'Your photobooth photo', // Subject line
         text: 'Thanks for stopping by!', // plain text body
         html: '<b>Hello world?</b>' // html body
