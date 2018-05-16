@@ -22,7 +22,8 @@ var lo= document.getElementById('logo');
 var pm=document.getElementById('printmsg');
 var ent=document.getElementById('enteremail');
 var toEmail;
-
+var fin=document.getElementById('finserv');
+var bin =document.getElementById('bing');
 //var data = new FormData();
 //var data = {};
 
@@ -432,6 +433,9 @@ function startEmail(){
 
   pm.classList.remove("hide");
   pm.className += " show fadeIn";
+
+  bin.src="images/binggreen.png";
+  fin.src="images/finservgreen.png";
 
 //CREATE PDF
 
