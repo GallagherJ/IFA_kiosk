@@ -140,7 +140,7 @@ cameraBtn.onclick = function(){
  tha.className += " show fadeInUp";
  tha.classList.remove("hide");
 
-setTimeout("location.reload(true);",5000);
+setTimeout("location.reload(true);",7000);
 
 }
 
@@ -413,7 +413,7 @@ function startTimer(duration, display) {
 }
  function countStart () {
   photoTaken=false;
-    var fiveMinutes = 2,
+    var fiveMinutes = 10,
         display = document.getElementById('countdown');
     startTimer(fiveMinutes, display);
 };
@@ -467,14 +467,14 @@ pdfData=pdfData.slice(24);
 // data:application/pdf;base64,
 
 var printJobPayload = {
-    "printerId": 402555,
-    "title": "brother test",
+    "printerId": 402549,
+    "title": "mitsi photo",
     "contentType": "pdf_base64",
     "content": pdfData,
     "source": "javascript api client"
 }
-/*setTimeout(sendPrint(printJobPayload)
-, 1000);*/
+setTimeout(sendPrint(printJobPayload)
+, 1000);
 
 
 }

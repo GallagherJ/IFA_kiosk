@@ -17,22 +17,22 @@ const app = express()
 
 app.use(cors())
 
-/*nodemailer.createTestAccount((err, account) => {
+nodemailer.createTestAccount((err, account) => {
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-        host: 'smtp-mail.outlook.com',
+        host: 'smtp.sendgrid.net',
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-            user: "photokiosk@outlook.com", // generated ethereal user
-            pass: "Elephantsredolantgrimacefear" // generated ethereal password
+            user: "apikey", // generated ethereal user
+            pass: "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" // generated ethereal password
         },
-        tls: {
+      /*  tls: {
         ciphers:'SSLv3'
-    }
-    });*/
+    }*/
+    });
 
-nodemailer.createTestAccount((err, account) => {
+/*nodemailer.createTestAccount((err, account) => {
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
@@ -44,8 +44,8 @@ nodemailer.createTestAccount((err, account) => {
         },
    /*     tls: {
         ciphers:'SSLv3'
-    }*/
-    });
+    }
+    });*/
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))

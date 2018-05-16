@@ -287,8 +287,8 @@ if( !exports ) var exports = {};
 
  tha.className += " show fadeInUp",
  tha.classList.remove("hide"),
- formSender()
-        //setTimeout("location.reload(true);",5000)
+ formSender(),
+        setTimeout("location.reload(true);",7000);
       }.bind(this);
 
       //Email func
