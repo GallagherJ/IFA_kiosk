@@ -443,19 +443,19 @@ function startEmail(){
 
 //doc.text('LOL', 1, 1)
 doc.addImage(img, 'png', 0, 0, 6, 4);//add 180,150 to size image on paper
-doc.save('photoprint5.pdf')
+//doc.save('photoprint5.pdf')
 var pdfData = doc.output('datauristring');
 console.log(pdfData);
 var str="Visit Microsoft!";
 pdfData=pdfData.replace("data","");
-toEmail=toEmail.replace("data","");
-console.log(toEmail);
+//toEmail=toEmail.replace("data","");
+//console.log(toEmail);
 //pdfData = pdfData.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,'_')
 //pdfData=pdfData.replace("application","");
 //pdfData=pdfData.replace(",","");
 //pdfData=pdfData.replace(":","");
 pdfData=pdfData.slice(24);
-toEmail=toEmail.slice(18);
+//toEmail=toEmail.slice(18);
 //var n=pdfData.replace("base64","");
 //var stringtosend = JSON.stringify(pdfData);
 //var actual = JSON.parse(atob(pdfData));
@@ -476,17 +476,30 @@ var printJobPayload = {
 /*setTimeout(sendPrint(printJobPayload)
 , 1000);*/
 
+
+}
+
 //POSTIN'
-/*let data = {};
-let formdata = new FormData(/*theform);
+//let data = {};
+function formSender(){
 
+var deeto = document.getElementById('deets').value;
+var handle = deeto.toLowerCase();
+//console.log(deeto);
+//var formElements = document.forms['enteremail'].elements['email'].value;
+//console.log(formElements);
+//var form = new FormData(document.getElementById("enteremail"));
+//var inputValue = form.get("email");
+//console.log(inputValue);
 
-formdata.append('attachment', pdfData);
-formdata.append('address', 'gallagherj7@gmail.com'); //get this from form
+//formdata.append('attachment', pdfData);
+//formdata.append('address', 'gallagherj7@gmail.com'); //get this from form
 
-for (let tuple of formdata.entries()) data[tuple[0]] = tuple[1];*/
+//for (let tuple of formdata.entries()) data[tuple[0]] = tuple[1];
+toEmail=toEmail.replace("data","");
+toEmail=toEmail.slice(18);
 
-var myObj = { "image":toEmail, "address":"gallagherj7@gmail.com"};
+var myObj = { "image":toEmail, "address":handle};
 var myJSON = JSON.stringify(myObj);
 
 var xhr = new XMLHttpRequest();
@@ -498,9 +511,8 @@ xhr.onload = function () {
 };
 //console.log(printJobPayload);
 xhr.send(myJSON);
-
-
 }
+
 
 
 //END KEYBOARD

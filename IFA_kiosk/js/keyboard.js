@@ -257,6 +257,8 @@ if( !exports ) var exports = {};
       this.keyboardEl.appendChild(sendButton);
 
      sendButton.onclick = function() {
+
+
         document.activeElement.blur(),
          vidscreen.className += "  hide",
  vidscreen.classList.remove("show"),
@@ -285,7 +287,8 @@ if( !exports ) var exports = {};
 
  tha.className += " show fadeInUp",
  tha.classList.remove("hide"),
-        setTimeout("location.reload(true);",5000)
+ formSender()
+        //setTimeout("location.reload(true);",5000)
       }.bind(this);
 
       //Email func

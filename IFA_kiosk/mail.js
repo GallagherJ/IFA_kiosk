@@ -17,6 +17,21 @@ const app = express()
 
 app.use(cors())
 
+/*nodemailer.createTestAccount((err, account) => {
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+        host: 'smtp-mail.outlook.com',
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: "photokiosk@outlook.com", // generated ethereal user
+            pass: "Elephantsredolantgrimacefear" // generated ethereal password
+        },
+        tls: {
+        ciphers:'SSLv3'
+    }
+    });*/
+
 nodemailer.createTestAccount((err, account) => {
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
