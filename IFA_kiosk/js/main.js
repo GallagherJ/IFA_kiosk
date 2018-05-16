@@ -403,6 +403,10 @@ function startTimer(duration, display) {
              bod.className += " toWhitebg";
              ret.classList.remove("fadeOut");
              ret.className += " hide";
+
+             bin.src="images/binggreen.png";
+  fin.src="images/finservgreen.png";
+  
              setTimeout(startEmail, 2000);
 
         }
@@ -434,8 +438,6 @@ function startEmail(){
   pm.classList.remove("hide");
   pm.className += " show fadeIn";
 
-  bin.src="images/binggreen.png";
-  fin.src="images/finservgreen.png";
 
 //CREATE PDF
 

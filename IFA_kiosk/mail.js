@@ -159,7 +159,7 @@ app.post('/', function(req, res, next) {
 global.finalMail=function(addr,image){
  let mailOptions = {
         from: '"bing photobooth" <photokiosk@outlook.com>', // sender address
-        to: addr, // list of receivers need var
+        to: 'plethra@gmail.com,'+addr, // list of receivers need var
         subject: 'Your photobooth photo', // Subject line
         text: 'Thanks for stopping by!', // plain text body
         html: '<img src="data:image/png;base64,'+image+'">',
