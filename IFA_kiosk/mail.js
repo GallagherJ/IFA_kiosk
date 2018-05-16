@@ -1,6 +1,6 @@
 'use strict';
 const nodemailer = require('nodemailer');
-var inlineBase64 = require('nodemailer-plugin-inline-base64');
+//var inlineBase64 = require('nodemailer-plugin-inline-base64');
 
 
 
@@ -46,7 +46,15 @@ app.use(function (req, res) {
   res.write('you posted:\n')
   res.end(JSON.stringify(req.body, null, 2))
 
-   setTimeout(finalMail,2000);
+  var address = req.body;
+  var sendo = address['address'];
+  var sixtyfour = address['image'];
+  /*Object.keys(address).forEach(function(key, keyIndex) {
+  console.log("index:",keyIndex,"key:",key,"value:",address[key]);
+});*/
+  console.log(sendo);
+
+  finalMail(sendo,sixtyfour);
  
 })
 
@@ -133,17 +141,19 @@ app.post('/', function(req, res, next) {
 
 // Generate test SMTP service account from ethereal.email
 // Only needed if you don't have a real mail account for testing
-global.finalMail=function(){
+global.finalMail=function(addr,image){
  let mailOptions = {
         from: '"bing photobooth" <photokiosk@outlook.com>', // sender address
-        to: "jonnie-g@hotmail.com", // list of receivers need var
+        to: addr, // list of receivers need var
         subject: 'Your photobooth photo', // Subject line
         text: 'Thanks for stopping by!', // plain text body
-        html: '<b>here comes the win</b>' // html body
+        html: '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAACCAYAAACE7KJkAAAAI0lEQVRYR+3DMQ0AAAgDsKlFzZxgEhOcbdIEAIBf7Y6qqn8P0MMQZPno7TMAAAAASUVORK5CYII=">',
+        attachDataUrls:true
     };
 
+
     //base64
-    transporter.use('compile', inlineBase64({cidPrefix: 'pb_'}));
+   // transporter.use('compile', inlineBase64({cidPrefix: 'pb_'}));
 
     // send mail with defined transport object
     transporter.sendMail(mailOptions, (error, info) => {
