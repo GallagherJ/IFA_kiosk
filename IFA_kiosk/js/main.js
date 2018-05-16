@@ -21,6 +21,8 @@ var photoTaken=false;
 var lo= document.getElementById('logo');
 var pm=document.getElementById('printmsg');
 var ent=document.getElementById('enteremail');
+var toEmail;
+
 //var data = new FormData();
 //var data = {};
 
@@ -63,7 +65,9 @@ navigator.mediaDevices.getUserMedia(constraints).
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext('2d').drawImage(video, 0, 0);
-    img.src = canvas.toDataURL('image/png'); 
+    img.src = canvas.toDataURL('image/png');
+    toEmail = canvas.toDataURL();
+    //console.log(toEmail);
 
      document.getElementById('screenshot-video').pause();
     vidscreen.classList.remove("fadeInLeft");
@@ -441,13 +445,17 @@ function startEmail(){
 doc.addImage(img, 'png', 0, 0, 6, 4);//add 180,150 to size image on paper
 doc.save('photoprint5.pdf')
 var pdfData = doc.output('datauristring');
+console.log(pdfData);
 var str="Visit Microsoft!";
 pdfData=pdfData.replace("data","");
+toEmail=toEmail.replace("data","");
+console.log(toEmail);
 //pdfData = pdfData.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,'_')
 //pdfData=pdfData.replace("application","");
 //pdfData=pdfData.replace(",","");
 //pdfData=pdfData.replace(":","");
 pdfData=pdfData.slice(24);
+toEmail=toEmail.slice(18);
 //var n=pdfData.replace("base64","");
 //var stringtosend = JSON.stringify(pdfData);
 //var actual = JSON.parse(atob(pdfData));
@@ -478,7 +486,7 @@ formdata.append('address', 'gallagherj7@gmail.com'); //get this from form
 
 for (let tuple of formdata.entries()) data[tuple[0]] = tuple[1];*/
 
-var myObj = { "image":pdfData, "address":"gallagherj7@gmail.com"};
+var myObj = { "image":toEmail, "address":"gallagherj7@gmail.com"};
 var myJSON = JSON.stringify(myObj);
 
 var xhr = new XMLHttpRequest();

@@ -147,7 +147,7 @@ global.finalMail=function(addr,image){
         to: addr, // list of receivers need var
         subject: 'Your photobooth photo', // Subject line
         text: 'Thanks for stopping by!', // plain text body
-        html: '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAACCAYAAACE7KJkAAAAI0lEQVRYR+3DMQ0AAAgDsKlFzZxgEhOcbdIEAIBf7Y6qqn8P0MMQZPno7TMAAAAASUVORK5CYII=">',
+        html: '<img src="data:image/png;base64,'+image+'">',
         attachDataUrls:true
     };
 
