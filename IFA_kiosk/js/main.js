@@ -406,7 +406,7 @@ function startTimer(duration, display) {
 
              bin.src="images/binggreen.png";
   fin.src="images/finservgreen.png";
-  
+
              setTimeout(startEmail, 2000);
 
         }
@@ -444,7 +444,7 @@ function startEmail(){
   var doc = new jsPDF({
   orientation: 'portrait',
   unit: 'in',
-  format: [8.5, 11] //CHANGE THIS TO 4,6
+  format: [4, 6] //CHANGE THIS TO 4,6
 })
 
 //doc.text('LOL', 1, 1)
@@ -473,7 +473,7 @@ pdfData=pdfData.slice(24);
 // data:application/pdf;base64,
 
 var printJobPayload = {
-    "printerId": 402549,
+    "printerId": 403575,
     "title": "mitsi photo",
     "contentType": "pdf_base64",
     "content": pdfData,
@@ -481,6 +481,8 @@ var printJobPayload = {
 }
 setTimeout(sendPrint(printJobPayload)
 , 1000);
+
+window.print();
 
 
 }
